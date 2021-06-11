@@ -73,7 +73,6 @@ public class CarController : MonoBehaviour
 
         if (locVel.z < topSpeed)
             rb.velocity += transform.forward * speedAcel;
-        Debug.Log("key forward, " + this.name);
     }
 
     void MoveBackward()
@@ -84,8 +83,6 @@ public class CarController : MonoBehaviour
             rb.drag = dragBreak;
         if (locVel.z <= 0 && locVel.z > -topSpeedBack)
             rb.velocity -= transform.forward * speedBack;
-
-        Debug.Log("key backward, " + this.name);
     }
     void ReleaseBackward()
     {
@@ -95,7 +92,6 @@ public class CarController : MonoBehaviour
     void MoveTurnAnti()
     {
         transform.RotateAround(transform.position, Vector3.up, -speedTurn * Time.deltaTime);
-        Debug.Log("key anti, " + this.name);
     }
 
     void MoveTurnClock()
@@ -113,6 +109,5 @@ public class CarController : MonoBehaviour
     {
         otherRb.velocity += otherMagnet.transform.forward * pullForce;
         // var target = transform.LookAt(otherCar.transform.position)
-        Debug.Log("key teher, " + this.name);
     }
 }

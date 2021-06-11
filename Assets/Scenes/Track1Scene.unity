@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 260394725}
   - component: {fileID: 260394730}
   - component: {fileID: 260394726}
+  - component: {fileID: 260394731}
   m_Layer: 0
   m_Name: Car left
   m_TagString: Player
@@ -153,7 +154,7 @@ Rigidbody:
   m_GameObject: {fileID: 260394724}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0.1
+  m_Drag: 0.3
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -172,7 +173,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!23 &260394727
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -221,7 +222,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260394724}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2432090755550338912, guid: d4aa6033d7ee878458e1b8f12f043f25, type: 3}
 --- !u!4 &260394729
 Transform:
   m_ObjectHideFlags: 0
@@ -229,14 +230,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260394724}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -10.24, y: 0.5, z: 0.133}
-  m_LocalScale: {x: 1, y: 1, z: 3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.33, y: 1.12, z: 3.41}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 294714645}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &260394730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,14 +255,44 @@ MonoBehaviour:
   keyBackward: 115
   keyTurnAnti: 97
   keyTurnClock: 100
-  keyTether: 32
-  speedAcel: 3
+  keyTether: 304
+  speedAcel: 4
   speedBack: 0.5
-  dragBreak: 0.7
+  dragBreak: 0.8
   speedTurn: 120
   topSpeed: 30
-  topSpeedBack: 6
-  pullForce: 1
+  topSpeedBack: 15
+  pullForce: 1.5
+--- !u!146 &260394731
+WheelCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260394724}
+  m_Center: {x: 0.5, y: 0, z: 1}
+  m_Radius: 0.35
+  m_SuspensionSpring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
+  m_Enabled: 0
 --- !u!1001 &294714644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -788,14 +819,14 @@ MonoBehaviour:
   keyBackward: 107
   keyTurnAnti: 106
   keyTurnClock: 108
-  keyTether: 32
-  speedAcel: 3
+  keyTether: 303
+  speedAcel: 4
   speedBack: 0.5
-  dragBreak: 0.7
+  dragBreak: 0.8
   speedTurn: 120
   topSpeed: 30
-  topSpeedBack: 6
-  pullForce: 1
+  topSpeedBack: 15
+  pullForce: 1.5
 --- !u!54 &1835354525
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -805,7 +836,7 @@ Rigidbody:
   m_GameObject: {fileID: 1835354522}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0.1
+  m_Drag: 0.3
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
