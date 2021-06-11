@@ -8,8 +8,9 @@ public class CarController : MonoBehaviour
     public KeyCode keyForward, keyBackward, keyTurnAnti, keyTurnClock;
     public KeyCode keyTether;
 
-    private Rigidbody rb;
+    private Rigidbody rb, otherRb;
     private float defaultDrag;
+    private Transform thisMagnet, otherMagnet;
 
     public float speedAcel, speedBack, dragBreak;
     public float speedTurn;
@@ -19,16 +20,24 @@ public class CarController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //rigidbodies
         rb = GetComponent<Rigidbody>();
+        otherRb = otherCar.GetComponent<Rigidbody>();
+        //drag
         defaultDrag = rb.drag;
+        //magnets
+        thisMagnet = transform.GetChild(0);
+        otherMagnet = otherCar.transform.GetChild(0);
     }
 
     // Update is called once per frame
     void Update()
     {
         GetInputs();
+        MagnetTarget();
     }
 
+    //Get inputs
     void GetInputs()
     {
         if (Input.GetKey(keyForward))
@@ -57,6 +66,7 @@ public class CarController : MonoBehaviour
         }
     }
 
+    //Car movement
     void MoveForward()
     {
         var locVel = transform.InverseTransformDirection(rb.velocity);
@@ -94,9 +104,15 @@ public class CarController : MonoBehaviour
         Debug.Log("key clock, " + this.name);
     }
 
+    //Magnet and Tether
+    void MagnetTarget()
+    {
+        thisMagnet.LookAt(otherMagnet);
+    }
     void ActiveTether()
     {
-        rb.velocity += transform.LookAt(otherCar) * pullForce;
+        otherRb.velocity += otherMagnet.transform.forward * pullForce;
+        // var target = transform.LookAt(otherCar.transform.position)
         Debug.Log("key teher, " + this.name);
     }
 }
