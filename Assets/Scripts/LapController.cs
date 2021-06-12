@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class LapController : MonoBehaviour
 {
-    public List<Transform> gatesList;
+    private List<Transform> gatesList;
     public List<float> lapTimers, splitsList;
 
     public bool activeGateCrossed;
     public int currentGate, currentLap;
     public int lapTotal;
 
-    public float currentTimer, currentSplit;
+    public float currentTotal, currentLapSplit, currentZoneSplit;
+
+    public TextMeshProUGUI lapText, timerText;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentTotal = 0;
         currentLap = 0;
         currentGate = 0;
 
@@ -31,24 +36,29 @@ public class LapController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTimer += Time.deltaTime;
-        currentSplit += Time.deltaTime;
+        currentTotal += Time.deltaTime;
+        currentLapSplit += Time.deltaTime;
+        currentZoneSplit += Time.deltaTime;
+
+        lapText.SetText("Lap {0}/{1}", (currentLap + 1), lapTotal);
+        timerText.SetText("{0:2}s", currentTotal);
+
 
         if (activeGateCrossed)
         {
             Debug.Log("New Gate");
             currentGate++;
             activeGateCrossed = false;
-            splitsList.Add(currentSplit);
-            currentSplit = 0;
+            splitsList.Add(currentZoneSplit);
+            currentZoneSplit = 0;
 
             if (currentGate == gatesList.Count)
             {
                 Debug.Log("New Lap");
                 currentLap++;
                 currentGate = 0;
-                lapTimers.Add(currentTimer);
-                currentTimer = 0;
+                lapTimers.Add(currentLapSplit);
+                currentLap = 0;
 
                 if (currentLap == lapTotal)
                 {
