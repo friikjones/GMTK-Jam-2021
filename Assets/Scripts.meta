@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4e6b058b4960eff46bda7fb13c1aaed0
+=======
+<<<<<<< HEAD
+guid: 0a5e9323978d1fe4abfeda07398eb437
+=======
+guid: 4e6b058b4960eff46bda7fb13c1aaed0
+>>>>>>> main
+>>>>>>> Loadingscene
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

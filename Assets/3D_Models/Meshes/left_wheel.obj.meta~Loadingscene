@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 661a2141e1bd676429c8edb988f88c72
+guid: e1b5d130e0c62fe4fb6d1ba92024dfaf
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -34,11 +34,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-<<<<<<< HEAD
-    globalScale: 100
-=======
     globalScale: 1
->>>>>>> Loadingscene
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -89,11 +85,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-<<<<<<< HEAD
-    globalScale: 100
-=======
     globalScale: 1
->>>>>>> Loadingscene
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
