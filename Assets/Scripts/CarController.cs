@@ -162,4 +162,22 @@ public class CarController : MonoBehaviour
         otherRb.velocity += otherMagnet.transform.forward * pullForce;
         // var target = transform.LookAt(otherCar.transform.position)
     }
+
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.name == otherCar.name) {
+            Debug.Log("cars are together");
+            pullForce = 0.0001f;
+            otherRb.mass = 2;
+            topSpeed = 10;
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        Debug.Log("cars are apart");
+        pullForce = 0.2f;
+        otherRb.mass = 1;
+        topSpeed = 20;
+    }
 }
