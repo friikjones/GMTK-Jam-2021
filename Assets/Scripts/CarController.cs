@@ -150,7 +150,6 @@ public class CarController : MonoBehaviour
     void MoveTurnClock()
     {
         transform.RotateAround(transform.position, Vector3.up, speedTurn * Time.deltaTime);
-        Debug.Log("key clock, " + this.name);
     }
 
     //Magnet and Tether
