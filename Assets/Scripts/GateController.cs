@@ -27,7 +27,7 @@ public class GateController : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (other.name == "Car left")
+            if (other.name == "Car Left")
                 leftCarThrough = true;
             else
                 rightCarThrough = true;

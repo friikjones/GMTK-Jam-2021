@@ -12,6 +12,8 @@ public class CarController : MonoBehaviour
     private float defaultDrag;
     private Transform thisMagnet, otherMagnet;
 
+    public bool grounded;
+
     public float speedAcel, speedBack, dragBreak;
     public float speedTurn;
     public float topSpeed, topSpeedBack;
@@ -22,19 +24,64 @@ public class CarController : MonoBehaviour
     {
         //rigidbodies
         rb = GetComponent<Rigidbody>();
+        rb.centerOfMass = Vector3.zero;
         otherRb = otherCar.GetComponent<Rigidbody>();
         //drag
         defaultDrag = rb.drag;
         //magnets
         thisMagnet = transform.GetChild(0);
         otherMagnet = otherCar.transform.GetChild(0);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        GetFloorContact();
+        ResetIfFlipped();
         GetInputs();
         MagnetTarget();
+    }
+
+    void GetFloorContact()
+    {
+        int hitCount = 0;
+        Vector3[] raycastPoints = { new Vector3(.5f, 0, -1),
+                                    new Vector3(.5f, 0, 1),
+                                    new Vector3(-.5f, 0, -1),
+                                    new Vector3(-.5f, 0, -1), };
+        for (int i = 0; i < 4; i++)
+        {
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + raycastPoints[i], transform.TransformDirection(Vector3.down), out hit, 10))
+            {
+                Debug.DrawRay(transform.position + raycastPoints[i], transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+                hitCount++;
+            }
+            else
+            {
+                Debug.DrawRay(transform.position + raycastPoints[i], transform.TransformDirection(Vector3.down) * 10, Color.yellow);
+            }
+        }
+        if (hitCount > 1)
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+    }
+
+    void ResetIfFlipped()
+    {
+        if (!grounded && rb.velocity.magnitude < .1f)
+        {
+            Vector3 currentPos = transform.position + Vector3.up;
+            transform.rotation = Quaternion.identity;
+            transform.position = currentPos;
+        }
     }
 
     //Get inputs
@@ -42,11 +89,17 @@ public class CarController : MonoBehaviour
     {
         if (Input.GetKey(keyForward))
         {
-            MoveForward();
+            if (grounded)
+            {
+                MoveForward();
+            }
         }
         if (Input.GetKey(keyBackward))
         {
-            MoveBackward();
+            if (grounded)
+            {
+                MoveBackward();
+            }
         }
         else
         {
