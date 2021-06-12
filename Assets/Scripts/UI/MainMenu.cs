@@ -29,6 +29,16 @@ public class MainMenu : MonoBehaviour
         //Get first scene in the build index
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void StartEightTrack()
+    {
+        //Get first scene in the build index
+        SceneManager.LoadScene("T1_EightTrack");
+    }
+    public void StartIceTrack()
+    {
+        //Get first scene in the build index
+        SceneManager.LoadScene("T2_IceTrack");
+    }
 
     public void QuitGame()
     {
