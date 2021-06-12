@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 260394725}
   - component: {fileID: 260394730}
   - component: {fileID: 260394726}
-  - component: {fileID: 260394731}
   m_Layer: 0
   m_Name: Car left
   m_TagString: Player
@@ -172,8 +171,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: -0.5, z: 0}
+  m_Size: {x: 1, y: 1, z: 3.5}
+  m_Center: {x: 0.45, y: -0.2, z: 0}
 --- !u!23 &260394727
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -231,7 +230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260394724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.33, y: 1.12, z: 3.41}
+  m_LocalPosition: {x: -2.33, y: 1, z: 3.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 294714645}
@@ -263,36 +262,6 @@ MonoBehaviour:
   topSpeed: 30
   topSpeedBack: 15
   pullForce: 1.5
---- !u!146 &260394731
-WheelCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 260394724}
-  m_Center: {x: 0.5, y: 0, z: 1}
-  m_Radius: 0.35
-  m_SuspensionSpring:
-    spring: 0
-    damper: 0
-    targetPosition: 0
-  m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 0
-  m_Mass: 20
-  m_WheelDampingRate: 0.25
-  m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
-  m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
-  m_Enabled: 0
 --- !u!1001 &294714644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,7 +287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9576c231a3d4c984382305e103253819, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9576c231a3d4c984382305e103253819, type: 3}
       propertyPath: m_LocalPosition.y
@@ -685,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9576c231a3d4c984382305e103253819, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.35
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9576c231a3d4c984382305e103253819, type: 3}
       propertyPath: m_LocalPosition.y
@@ -800,8 +769,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 3.5}
+  m_Center: {x: -0.55, y: -0.2, z: 0}
 --- !u!114 &1835354524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,7 +860,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835354522}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2432090755550338912, guid: 613b0fcbf4d09a3449517e142dbd915f, type: 3}
 --- !u!4 &1835354528
 Transform:
   m_ObjectHideFlags: 0
@@ -900,8 +869,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835354522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.38, y: 0.5, z: 3.89}
-  m_LocalScale: {x: 1, y: 1, z: 3}
+  m_LocalPosition: {x: 0.38, y: 1, z: 3.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1227494312}
   m_Father: {fileID: 0}
