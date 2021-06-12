@@ -11,6 +11,7 @@ public class CarController : MonoBehaviour
     private Rigidbody rb, otherRb;
     private float defaultDrag;
     private Transform thisMagnet, otherMagnet;
+    private int collisionTicks;
 
     public bool grounded;
 
@@ -41,6 +42,21 @@ public class CarController : MonoBehaviour
         ResetIfFlipped();
         GetInputs();
         MagnetTarget();
+    }
+
+    void FixedUpdate()
+    {
+        collisionTicks++;
+        if (collisionTicks <= 10) {
+            pullForce = 0.01f;
+            otherRb.mass = 2;
+            topSpeed = 10;
+        } else {
+            pullForce = 0.2f;
+            otherRb.mass = 1;
+            topSpeed = 20;
+        }
+        
     }
 
     void GetFloorContact()
@@ -166,18 +182,8 @@ public class CarController : MonoBehaviour
     void OnCollisionStay(Collision other)
     {
         if (other.gameObject.name == otherCar.name) {
-            Debug.Log("cars are together");
-            pullForce = 0.0001f;
-            otherRb.mass = 2;
-            topSpeed = 10;
+            // Debug.Log("cars are together");
+            collisionTicks = 0;
         }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        Debug.Log("cars are apart");
-        pullForce = 0.2f;
-        otherRb.mass = 1;
-        topSpeed = 20;
     }
 }
