@@ -176,6 +176,7 @@ public class CarController : MonoBehaviour
     void ActiveTether()
     {
         otherRb.velocity += otherMagnet.transform.forward * pullForce;
+        rb.velocity -= otherMagnet.transform.forward * pullForce / 20;
         // var target = transform.LookAt(otherCar.transform.position)
     }
 

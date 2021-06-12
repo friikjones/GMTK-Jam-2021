@@ -609,8 +609,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.21056414, y: 0.04239484, z: -0.009140562, w: 0.9766176}
-  m_LocalPosition: {x: 2.441894, y: 14.118719, z: -27.0689}
+  m_LocalRotation: {x: 0.21156998, y: 0.048790768, z: -0.010575556, w: 0.976087}
+  m_LocalPosition: {x: 2.0577557, y: 14.163239, z: -26.95621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -855,7 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 2117231494}
-  m_PathPosition: -15.228004
+  m_PathPosition: -15.0130625
   m_PositionUnits: 1
   m_PathOffset: {x: 0, y: 10.08, z: 0}
   m_XDamping: 0
@@ -968,8 +968,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984537042}
-  m_LocalRotation: {x: 0.21056414, y: 0.04239484, z: -0.009140562, w: 0.9766176}
-  m_LocalPosition: {x: 2.441894, y: 14.118719, z: -27.0689}
+  m_LocalRotation: {x: 0.21156998, y: 0.048790768, z: -0.010575556, w: 0.976087}
+  m_LocalPosition: {x: 2.0577557, y: 14.163239, z: -26.95621}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1867726262}
@@ -1081,9 +1081,9 @@ MonoBehaviour:
   m_Waypoints:
   - position: {x: 0, y: 0, z: -5}
     roll: 0
-  - position: {x: -13.136817, y: 0, z: 114.18882}
+  - position: {x: -9.953504, y: 0, z: 116.70007}
     roll: 0
-  - position: {x: -145.76657, y: 0, z: 194.43944}
+  - position: {x: -145.76657, y: 2.133637, z: 194.43944}
     roll: 0
   - position: {x: -319.08124, y: 0, z: 150.66202}
     roll: 0
@@ -1091,17 +1091,17 @@ MonoBehaviour:
     roll: 0
   - position: {x: -295.07718, y: 0, z: -112.85459}
     roll: 0
-  - position: {x: -139.24147, y: 0, z: -142.83064}
+  - position: {x: -139.24147, y: 2.1149497, z: -142.83064}
     roll: 0
   - position: {x: -6.269665, y: 26.282429, z: -39.431164}
     roll: 0
-  - position: {x: 18.723873, y: 39.146957, z: 31.135597}
+  - position: {x: 21.626844, y: 39.146957, z: 31.135597}
     roll: 0
-  - position: {x: 33.50847, y: 34.207554, z: 101.702354}
+  - position: {x: 41.014034, y: 34.207554, z: 101.702354}
     roll: 0
   - position: {x: 123.49622, y: 14.838062, z: 172.2691}
     roll: 0
-  - position: {x: 235.01064, y: -3.3432655, z: 177.94167}
+  - position: {x: 235.01064, y: -0.10306215, z: 177.94167}
     roll: 0
   - position: {x: 372.59418, y: -2.7005615, z: 98.88956}
     roll: 0
@@ -1134,6 +1134,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 82661351210751350, guid: c5b0e4a21e83b5f4db23c2ca2eb993f9, type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 457763929038346410, guid: c5b0e4a21e83b5f4db23c2ca2eb993f9, type: 3}
+      propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 457763929038346411, guid: c5b0e4a21e83b5f4db23c2ca2eb993f9, type: 3}
@@ -1228,6 +1232,22 @@ PrefabInstance:
     - target: {fileID: 540398771782373010, guid: bbcff020173b0764aa952d91396fda86, type: 3}
       propertyPath: pullForce
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 540398771782373010, guid: bbcff020173b0764aa952d91396fda86, type: 3}
+      propertyPath: keyForward
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 540398771782373010, guid: bbcff020173b0764aa952d91396fda86, type: 3}
+      propertyPath: keyBackward
+      value: 59
+      objectReference: {fileID: 0}
+    - target: {fileID: 540398771782373010, guid: bbcff020173b0764aa952d91396fda86, type: 3}
+      propertyPath: keyTurnAnti
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 540398771782373010, guid: bbcff020173b0764aa952d91396fda86, type: 3}
+      propertyPath: keyTurnClock
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 540398771782373014, guid: bbcff020173b0764aa952d91396fda86, type: 3}
       propertyPath: m_RootOrder
