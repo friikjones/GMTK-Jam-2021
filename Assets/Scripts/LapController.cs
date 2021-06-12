@@ -5,14 +5,13 @@ using UnityEngine;
 public class LapController : MonoBehaviour
 {
     public List<Transform> gatesList;
-    public List<bool> gatesChecks;
+    public List<float> lapTimers, splitsList;
 
     public bool activeGateCrossed;
     public int currentGate, currentLap;
     public int lapTotal;
 
-    public List<float> lapTimers;
-    public float currentTimer;
+    public float currentTimer, currentSplit;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +23,6 @@ public class LapController : MonoBehaviour
         foreach (Transform child in transform)
         {
             gatesList.Add(child);
-            gatesChecks.Add(false);
         }
 
         RefreshGates();
@@ -34,12 +32,15 @@ public class LapController : MonoBehaviour
     void Update()
     {
         currentTimer += Time.deltaTime;
+        currentSplit += Time.deltaTime;
 
         if (activeGateCrossed)
         {
             Debug.Log("New Gate");
             currentGate++;
             activeGateCrossed = false;
+            splitsList.Add(currentSplit);
+            currentSplit = 0;
 
             if (currentGate == gatesList.Count)
             {
@@ -55,6 +56,7 @@ public class LapController : MonoBehaviour
                     // Ends the track
                 }
             }
+
             RefreshGates();
         }
     }
