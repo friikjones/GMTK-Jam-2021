@@ -11,7 +11,6 @@ public class MainMenu : MonoBehaviour
 
     public GameObject MainFirstButton, trackFirstButton, trackCloseButton, optionsFirstButton, optionsCloseButton, tutorialFirstButton, tutorialCloseButton;
 
-
     private void Start()
     {
         //Make sure that only the Main Menu is active in the heirarchy
@@ -85,18 +84,18 @@ public class MainMenu : MonoBehaviour
     public void StartEightTrack()
     {
         //Get first scene in the build index
-        LoadLevelAssync("T1_EightTrack");
+        StartCoroutine(delayEightTrack());
     }
     public void StartIceTrack()
     {
         //Get first scene in the build index
-        LoadLevelAssync("T2_IceTrack");
+        StartCoroutine(delayIceTrack());
     }
 
     public void StartThirdTrack()
     {
         //Get first scene in the build index
-        LoadLevelAssync("T3_Wipeout");
+        StartCoroutine(delayThirdTrack());
     }
 
     #region OptionsMenu
@@ -155,5 +154,23 @@ public class MainMenu : MonoBehaviour
         }
         //Allows scene transition
         operation.allowSceneActivation = true;
+    }
+
+    IEnumerator delayEightTrack() 
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("T1_EightTrack");
+    }
+
+    IEnumerator delayIceTrack() 
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("T2_IceTrack");
+    }
+
+    IEnumerator delayThirdTrack() 
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("T3_Wipeout");
     }
 }
