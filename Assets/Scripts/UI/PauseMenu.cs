@@ -4,18 +4,20 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuObject, optionsMenuObject, quitMenuObject;
+    public GameObject pauseMenuObject, optionsMenuObject;
 
-    public GameObject pauseFirstButton, optionsFirstButton, optionsCloseButton, quitFirstButton, quitCloseButton;
+    public GameObject pauseFirstButton, optionsFirstButton, optionsCloseButton;
+
 
 
     private void Start()
     {
         pauseMenuObject.SetActive(false);
         optionsMenuObject.SetActive(false);
-        quitMenuObject.SetActive(false);
+
     }
 
     private void Update()
@@ -29,6 +31,7 @@ public class PauseMenu : MonoBehaviour
     
     public void Restart()
     {
+        Time.timeScale = 1f;
         //Reload the active scene
         Debug.Log("Reload Scene");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -95,52 +98,9 @@ public class PauseMenu : MonoBehaviour
 
     #endregion
 
-    #region Quit Menu
-
-    public void OpenQuitMenu()
-    {
-        //Close pause menu
-        pauseMenuObject.SetActive(false);
-
-        //Open quit menu
-        quitMenuObject.SetActive(true);
-
-        //Make sure current selected object is not selected on anything
-        EventSystem.current.SetSelectedGameObject(null);
-
-        //Change current selected object is now the first button on the quit menu
-        EventSystem.current.SetSelectedGameObject(quitFirstButton);
-    }
-
-    public void CloseQuitMenu()
-    {
-        //Open pause menu
-        pauseMenuObject.SetActive(true);
-
-        //Close quit menu
-        quitMenuObject.SetActive(false);
-
-        //Make sure current selected object is not selected on anything
-        EventSystem.current.SetSelectedGameObject(null);
-
-        //Change current selected object is now the quit button on the pause menu
-        EventSystem.current.SetSelectedGameObject(quitCloseButton);
-    }
-
     public void MainMenu()
     {
         //Load Main Menu
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("1_MainMenu");
     }
-
-    public void QuitGame()
-    {
-        //Quit the game
-        Debug.Log("Quit Game");
-        Application.Quit();
-    }
-
-
-
-    #endregion
 }

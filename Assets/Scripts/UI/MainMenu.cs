@@ -7,15 +7,18 @@ using UnityEngine.EventSystems;
 public class MainMenu : MonoBehaviour
 {
 
-    public GameObject mainMenuObject, optionsMenuObject;
+    public GameObject mainMenuObject, optionsMenuObject, trackMenuObject, tutorialMenuObject;
 
-    public GameObject MainFirstButton, optionsFirstButton, optionsCloseButton;
+    public GameObject MainFirstButton, trackFirstButton, trackCloseButton, optionsFirstButton, optionsCloseButton , tutorialFirstButton, tutorialCloseButton;
 
 
     private void Start()
     {
+        //Make sure that only the Main Menu is active in the heirarchy
         mainMenuObject.SetActive(true);
         optionsMenuObject.SetActive(false);
+        tutorialMenuObject.SetActive(false);
+        trackMenuObject.SetActive(false);
 
         //Make sure current selected object is not selected on anything
         EventSystem.current.SetSelectedGameObject(null);
@@ -24,11 +27,61 @@ public class MainMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(MainFirstButton);
     }
 
-    public void StartGame()
+    #region Track Selection
+    public void OpenTrackSelection()
     {
-        //Get first scene in the build index
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        mainMenuObject.SetActive(false);
+        trackMenuObject.SetActive(true);
+
+        //Make sure current selected object is not selected on anything
+        EventSystem.current.SetSelectedGameObject(null);
+
+        //Change current selected object is now the first button on the options menu
+        EventSystem.current.SetSelectedGameObject(trackFirstButton);
     }
+    public void CloseTrackSelection()
+    {
+        mainMenuObject.SetActive(true);
+        trackMenuObject.SetActive(false);
+
+        //Make sure current selected object is not selected on anything
+        EventSystem.current.SetSelectedGameObject(null);
+
+        //Change current selected object is now the first button on the options menu
+        EventSystem.current.SetSelectedGameObject(trackCloseButton);
+    }
+
+    #endregion
+
+
+    #region How To Play
+
+    public void OpenTutorialMenu()
+    {
+        mainMenuObject.SetActive(false);
+        tutorialMenuObject.SetActive(true);
+
+        //Make sure current selected object is not selected on anything
+        EventSystem.current.SetSelectedGameObject(null);
+
+        //Change current selected object is now the options button on the Main Menu
+        EventSystem.current.SetSelectedGameObject(tutorialFirstButton);
+    }
+
+    public void CloseTutorialMenu()
+    {
+        mainMenuObject.SetActive(true);
+        tutorialMenuObject.SetActive(false);
+
+        //Make sure current selected object is not selected on anything
+        EventSystem.current.SetSelectedGameObject(null);
+
+        //Change current selected object is now the options button on the Main Menu
+        EventSystem.current.SetSelectedGameObject(tutorialCloseButton);
+    }
+
+    #endregion
+
     public void StartEightTrack()
     {
         //Get first scene in the build index
@@ -40,12 +93,13 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("T2_IceTrack");
     }
 
-    public void QuitGame()
+    public void StartThirdTrack()
     {
-        //Quit the game
-        Debug.Log("Quit Game");
-        Application.Quit();
+        //Get first scene in the build index
+        SceneManager.LoadScene("T3_Wipeout");
     }
+
+    #region OptionsMenu
 
     public void OpenOptions()
     {
@@ -70,4 +124,6 @@ public class MainMenu : MonoBehaviour
         //Change current selected object is now the options button on the Main Menu
         EventSystem.current.SetSelectedGameObject(optionsCloseButton);
     }
+
+    #endregion
 }
