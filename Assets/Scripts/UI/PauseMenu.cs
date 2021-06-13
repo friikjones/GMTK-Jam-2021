@@ -12,12 +12,17 @@ public class PauseMenu : MonoBehaviour
 
     public LapController lap;
 
-    private void Start()
+    private void Awake()
     {
         pauseMenuObject.SetActive(false);
         optionsMenuObject.SetActive(false);
         winMenuObject.SetActive(false);
 
+    }
+
+    private void OnEnable()
+    {
+        Time.timeScale = 1f;
     }
 
     private void Update()
