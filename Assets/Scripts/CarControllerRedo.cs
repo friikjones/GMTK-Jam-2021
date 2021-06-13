@@ -22,8 +22,6 @@ public class CarControllerRedo : MonoBehaviour
     public float groundRayLength = .75f;
     public Transform groundRayPoint;
 
-    public AudioSource magnetSound;
-
 
     private Transform thisMagnet, otherMagnet;
 
@@ -47,7 +45,7 @@ public class CarControllerRedo : MonoBehaviour
                                                 + new Vector3(0f, turnInput * turnStrength * Time.deltaTime, 0f));
         transform.position = rb.transform.position;
 
-        magnetSound.volume = (carDist / 10) / 2;
+
 
     }
 
