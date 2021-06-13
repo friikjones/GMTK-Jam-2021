@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuObject, optionsMenuObject;
+    public GameObject pauseMenuObject, optionsMenuObject, endgameMenuObject;
 
     public GameObject pauseFirstButton, optionsFirstButton, optionsCloseButton;
 
@@ -17,18 +17,24 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuObject.SetActive(false);
         optionsMenuObject.SetActive(false);
+        endgameMenuObject.SetActive(false);
 
     }
 
     private void Update()
     {
         //Pause the game if the Escape key or the Backspace button is pressed
-        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
         {
-            PauseUnpause();
+            if (endgameMenuObject.activeInHierarchy)
+            {
+                MainMenu();
+            }
+            else
+                PauseUnpause();
         }
     }
-    
+
     public void Restart()
     {
         Time.timeScale = 1f;
@@ -54,7 +60,7 @@ public class PauseMenu : MonoBehaviour
             //Change current selected object is now the first button on the options menu
             EventSystem.current.SetSelectedGameObject(pauseFirstButton);
 
-            if(Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 Restart();
             }
@@ -97,6 +103,24 @@ public class PauseMenu : MonoBehaviour
     }
 
     #endregion
+
+    public void OpenEndgame()
+    {
+        pauseMenuObject.SetActive(false);
+        optionsMenuObject.SetActive(false);
+        endgameMenuObject.SetActive(true);
+
+        Time.timeScale = 0;
+
+        //Make sure current selected object is not selected on anything
+        EventSystem.current.SetSelectedGameObject(null);
+
+        //Change current selected object is now the first button on the options menu
+        EventSystem.current.SetSelectedGameObject(optionsFirstButton);
+    }
+
+
+
 
     public void MainMenu()
     {

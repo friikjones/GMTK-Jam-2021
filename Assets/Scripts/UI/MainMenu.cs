@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     public GameObject mainMenuObject, optionsMenuObject, trackMenuObject, tutorialMenuObject;
 
-    public GameObject MainFirstButton, trackFirstButton, trackCloseButton, optionsFirstButton, optionsCloseButton , tutorialFirstButton, tutorialCloseButton;
+    public GameObject MainFirstButton, trackFirstButton, trackCloseButton, optionsFirstButton, optionsCloseButton, tutorialFirstButton, tutorialCloseButton;
 
 
     private void Start()
@@ -85,18 +85,18 @@ public class MainMenu : MonoBehaviour
     public void StartEightTrack()
     {
         //Get first scene in the build index
-        SceneManager.LoadScene("T1_EightTrack");
+        SceneManager.LoadScene("T1_EightTrack", LoadSceneMode.Single);
     }
     public void StartIceTrack()
     {
         //Get first scene in the build index
-        SceneManager.LoadScene("T2_IceTrack");
+        SceneManager.LoadScene("T2_IceTrack", LoadSceneMode.Single);
     }
 
     public void StartThirdTrack()
     {
         //Get first scene in the build index
-        SceneManager.LoadScene("T3_Wipeout");
+        SceneManager.LoadScene("T3_Wipeout", LoadSceneMode.Single);
     }
 
     #region OptionsMenu

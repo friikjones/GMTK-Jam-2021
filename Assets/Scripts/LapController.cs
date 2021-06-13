@@ -17,6 +17,8 @@ public class LapController : MonoBehaviour
 
     public TextMeshProUGUI lapText, timerText;
 
+    public PauseMenu pauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,12 +60,11 @@ public class LapController : MonoBehaviour
                 currentLap++;
                 currentGate = 0;
                 lapTimers.Add(currentLapSplit);
-                currentLap = 0;
 
                 if (currentLap == lapTotal)
                 {
                     Debug.Log("Track done");
-                    // Ends the track
+                    pauseMenu.OpenEndgame();
                 }
             }
 
