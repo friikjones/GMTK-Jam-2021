@@ -4,34 +4,27 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuObject, optionsMenuObject, endgameMenuObject;
+    public GameObject pauseMenuObject, optionsMenuObject , winMenuObject;
 
-    public GameObject pauseFirstButton, optionsFirstButton, optionsCloseButton;
+    public GameObject pauseFirstButton, optionsFirstButton, optionsCloseButton , winFirstButton;
 
-
+    public LapController lap;
 
     private void Start()
     {
         pauseMenuObject.SetActive(false);
         optionsMenuObject.SetActive(false);
-        endgameMenuObject.SetActive(false);
+        winMenuObject.SetActive(false);
 
     }
 
     private void Update()
     {
-        //Pause the game if the Escape key or the Backspace button is pressed
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
         {
-            if (endgameMenuObject.activeInHierarchy)
-            {
-                MainMenu();
-            }
-            else
-                PauseUnpause();
+            PauseUnpause();
         }
     }
 
@@ -104,27 +97,21 @@ public class PauseMenu : MonoBehaviour
 
     #endregion
 
-    public void OpenEndgame()
-    {
-        pauseMenuObject.SetActive(false);
-        optionsMenuObject.SetActive(false);
-        endgameMenuObject.SetActive(true);
-
-        Time.timeScale = 0;
-
-        //Make sure current selected object is not selected on anything
-        EventSystem.current.SetSelectedGameObject(null);
-
-        //Change current selected object is now the first button on the options menu
-        EventSystem.current.SetSelectedGameObject(optionsFirstButton);
-    }
-
-
-
 
     public void MainMenu()
     {
         //Load Main Menu
         SceneManager.LoadScene("1_MainMenu");
+    }
+
+    public void WinGame()
+    {
+        winMenuObject.SetActive(true);
+
+        //Make sure current selected object is not selected on anything
+        EventSystem.current.SetSelectedGameObject(null);
+
+        //Change current selected object is now the first button on the options menu
+        EventSystem.current.SetSelectedGameObject(winFirstButton);
     }
 }

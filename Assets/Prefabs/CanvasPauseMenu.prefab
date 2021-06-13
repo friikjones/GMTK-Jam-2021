@@ -3872,10 +3872,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuObject: {fileID: 195831869973426454}
   optionsMenuObject: {fileID: 195831869779517078}
-  endgameMenuObject: {fileID: 6035883113442192762}
+  winMenuObject: {fileID: 0}
   pauseFirstButton: {fileID: 195831869478420206}
   optionsFirstButton: {fileID: 195831868567543486}
   optionsCloseButton: {fileID: 195831868737076004}
+  winFirstButton: {fileID: 0}
+  lap: {fileID: 0}
 --- !u!1 &195831870308332117
 GameObject:
   m_ObjectHideFlags: 0
@@ -5442,7 +5444,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1521056664702097966}
-  - component: {fileID: 334824439}
   m_Layer: 5
   m_Name: EndGameMenu
   m_TagString: Untagged
@@ -5471,27 +5472,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &334824439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6035883113442192762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8cf4a31b4fc75343914ebb1f7754161, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lapTimers: []
-  splitsList: []
-  totalTimer: 0
-  totalTimeText: {fileID: 5976305691617689351}
-  lapTimeText: {fileID: 6088291331371620237}
-  bestTotalTime: 0
-  bestLapTime: 0
-  bestTotal: {fileID: 2377286671564442015}
-  bestLap: {fileID: 4505407427340731435}
 --- !u!1 &6283376735599220683
 GameObject:
   m_ObjectHideFlags: 0
