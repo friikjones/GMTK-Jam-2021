@@ -516,10 +516,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherCar: {fileID: 0}
-  keyForward: 105
-  keyBackward: 107
-  keyTurnAnti: 106
-  keyTurnClock: 108
+  keyForward: 112
+  keyBackward: 59
+  keyTurnAnti: 108
+  keyTurnClock: 39
   keyTether: 303
   rb: {fileID: 7538905300253406040}
   otherRb: {fileID: 0}
@@ -527,9 +527,9 @@ MonoBehaviour:
   reverseAccel: 2
   maxSpeed: 50
   turnStrength: 120
-  gravityForce: 0
+  gravityForce: 10
   dragOnGround: 3
-  dragOnAir: 0.1
+  dragOnAir: 1
   pullForce: 4
   pullSelfMultiplier: 0.7
   grounded: 0

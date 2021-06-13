@@ -85,18 +85,18 @@ public class MainMenu : MonoBehaviour
     public void StartEightTrack()
     {
         //Get first scene in the build index
-        SceneManager.LoadScene("T1_EightTrack", LoadSceneMode.Single);
+        LoadLevelAssync("T1_EightTrack");
     }
     public void StartIceTrack()
     {
         //Get first scene in the build index
-        SceneManager.LoadScene("T2_IceTrack", LoadSceneMode.Single);
+        LoadLevelAssync("T2_IceTrack");
     }
 
     public void StartThirdTrack()
     {
         //Get first scene in the build index
-        SceneManager.LoadScene("T3_Wipeout", LoadSceneMode.Single);
+        LoadLevelAssync("T3_Wipeout");
     }
 
     #region OptionsMenu
@@ -126,4 +126,34 @@ public class MainMenu : MonoBehaviour
     }
 
     #endregion
+
+    public void LoadLevelAssync(string sceneName, bool additive = false)
+    {
+        AsyncOperation operation;
+        //Resolve additive mode
+        if (additive)
+        {
+            operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        }
+        else
+        {
+            operation = SceneManager.LoadSceneAsync(sceneName);
+
+        }
+        //Stops scene transition 
+        operation.allowSceneActivation = false;
+        StartCoroutine(WaitForLoading(operation));
+    }
+
+
+    IEnumerator WaitForLoading(AsyncOperation operation)
+    {
+        //Holds the loading in place until progress is 90%
+        while (operation.progress < 0.9f)
+        {
+            yield return null;
+        }
+        //Allows scene transition
+        operation.allowSceneActivation = true;
+    }
 }

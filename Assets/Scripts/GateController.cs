@@ -25,9 +25,6 @@ public class GateController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Passed " + this.name);
-        Debug.Log("by " + other.name + " with tag " + other.tag);
-
         if (other.tag == "Player")
         {
             if (other.name == "Car Left")

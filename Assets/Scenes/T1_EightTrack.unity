@@ -2074,36 +2074,6 @@ PrefabInstance:
       propertyPath: otherCar
       value: 
       objectReference: {fileID: 82661351148142190}
-    - target: {fileID: 8061570584286685666, guid: bbcff020173b0764aa952d91396fda86,
-        type: 3}
-      propertyPath: dragOnAir
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8061570584286685666, guid: bbcff020173b0764aa952d91396fda86,
-        type: 3}
-      propertyPath: keyForward
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 8061570584286685666, guid: bbcff020173b0764aa952d91396fda86,
-        type: 3}
-      propertyPath: keyBackward
-      value: 59
-      objectReference: {fileID: 0}
-    - target: {fileID: 8061570584286685666, guid: bbcff020173b0764aa952d91396fda86,
-        type: 3}
-      propertyPath: keyTurnAnti
-      value: 108
-      objectReference: {fileID: 0}
-    - target: {fileID: 8061570584286685666, guid: bbcff020173b0764aa952d91396fda86,
-        type: 3}
-      propertyPath: gravityForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8061570584286685666, guid: bbcff020173b0764aa952d91396fda86,
-        type: 3}
-      propertyPath: keyTurnClock
-      value: 39
-      objectReference: {fileID: 0}
     - target: {fileID: 8061570584286685667, guid: bbcff020173b0764aa952d91396fda86,
         type: 3}
       propertyPath: m_Name

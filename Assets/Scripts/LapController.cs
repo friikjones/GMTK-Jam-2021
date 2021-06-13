@@ -48,7 +48,6 @@ public class LapController : MonoBehaviour
 
         if (activeGateCrossed)
         {
-            Debug.Log("New Gate");
             currentGate++;
             activeGateCrossed = false;
             splitsList.Add(currentZoneSplit);
@@ -56,7 +55,6 @@ public class LapController : MonoBehaviour
 
             if (currentGate == gatesList.Count)
             {
-                Debug.Log("New Lap");
                 currentLap++;
                 currentGate = 0;
                 lapTimers.Add(currentLapSplit);
